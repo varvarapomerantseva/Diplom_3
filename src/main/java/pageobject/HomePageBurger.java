@@ -25,15 +25,14 @@ public class HomePageBurger {
     private final By constructorButton = By.xpath("//*[text()='Конструктор']");
 
     //кнопка "Булки"
-    private final By bunButton = By.xpath(".//span[@class = 'text text_type_main-default' and text()='Булки']");
+    private final By bunButton = By.xpath(".//span[@class = 'text text_type_main-default' and text()='Булки']/parent::div");
 
     //кнопка "Соусы"
-    private final By sauceButton = By.xpath(".//span[@class = 'text text_type_main-default' and text()='Соусы']");
+    private final By sauceButton = By.xpath(".//span[@class = 'text text_type_main-default' and text()='Соусы']/parent::div");
 
     //кнопка "Начинки"
-    private final By fillingButton = By.xpath(".//span[@class = 'text text_type_main-default' and text()='Начинки']");
+    private final By fillingButton = By.xpath(".//span[@class = 'text text_type_main-default' and text()='Начинки']/parent::div");
 
-    private String currentClassAttributeValue = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
     private final WebDriver driver;
 
     public HomePageBurger(WebDriver driver) {
@@ -74,6 +73,7 @@ public class HomePageBurger {
 
     public void clickBunButton() {
         driver.findElement(bunButton).click();
+
     }
 
     public void clickSauceButton() {
@@ -84,10 +84,19 @@ public class HomePageBurger {
         driver.findElement(fillingButton).click();
     }
 
-
-    public void checkBunAttributeText() {
-        Assert.assertEquals(currentClassAttributeValue, );
+    public String getClassNameBun() {
+        return driver.findElement(bunButton).getAttribute("class");
 
     }
+
+    public String getClassNameSauce() {
+        return driver.findElement(sauceButton).getAttribute("class");
+    }
+
+    public String getClassNameFilling() {
+        return driver.findElement(fillingButton).getAttribute("class");
+
+    }
+
 }
 
