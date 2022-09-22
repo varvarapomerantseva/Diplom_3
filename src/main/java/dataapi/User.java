@@ -1,4 +1,4 @@
-package DataAPI;
+package dataapi;
 
 public class User {
 

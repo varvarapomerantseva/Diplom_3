@@ -1,4 +1,4 @@
-package DataAPI;
+package dataapi;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;

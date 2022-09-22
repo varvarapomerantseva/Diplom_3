@@ -1,21 +1,17 @@
-import DataAPI.UserClient;
+import dataapi.UserClient;
 import com.github.javafaker.Faker;
 import io.restassured.response.ValidatableResponse;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class RegistrationTest {
 
     private static UserClient userClient;
-    static String accessToken;
-    static String userToken;
-
-
+    private static String accessToken;
+    private static String userToken;
     private static WebDriver driver;
-
     public static Faker faker = new Faker();
     static String email = faker.name().lastName() + "@mail.ru";
     static String password = faker.internet().password();
@@ -46,10 +42,8 @@ public class RegistrationTest {
         accessToken = response.extract().path("accessToken");
         userToken = accessToken.substring(7);
         userClient.deleteUser(userToken);
-
-
-
     }
+
  @Test
  public void registrationWithInCorrectData() {
      pageobject.HomePageBurger objHomePage = new pageobject.HomePageBurger(driver);
@@ -61,8 +55,6 @@ public class RegistrationTest {
      String actualError = objRegisterPage.getTextErrorPassword();
      String expectedError = "Некорректный пароль";
      Assert.assertEquals(expectedError, actualError);
-
-
  }
 
    @After

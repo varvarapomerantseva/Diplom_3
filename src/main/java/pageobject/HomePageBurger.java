@@ -44,7 +44,6 @@ public class HomePageBurger {
         new WebDriverWait(driver, 8)
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//button[@class ='Account_button__14Yp3 text text_type_main-medium text_color_inactive' and text()='Выход']")));
         return new LoginPageBurger(driver);
-
     }
 
     public LoginPageBurger clickPersonalAccountButton() {
@@ -68,7 +67,6 @@ public class HomePageBurger {
 
     public void clickLogoButton() {
         driver.findElement(logoButton).click();
-
     }
 
     public void clickBunButton() {
@@ -86,7 +84,6 @@ public class HomePageBurger {
 
     public String getClassNameBun() {
         return driver.findElement(bunButton).getAttribute("class");
-
     }
 
     public String getClassNameSauce() {
@@ -95,7 +92,6 @@ public class HomePageBurger {
 
     public String getClassNameFilling() {
         return driver.findElement(fillingButton).getAttribute("class");
-
     }
 
 }

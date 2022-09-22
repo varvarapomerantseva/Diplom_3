@@ -8,8 +8,10 @@ public class RegisterPageBurger {
 
     //Поле "Имя"
     private final By nameField = By.xpath(".//fieldset[1]//input");
+
     //Поле "Email"
     private final By emailField = By.xpath(".//fieldset[2]//input");
+
     //Поле "Пароль"
     private final By passwordField = By.xpath(".//fieldset[3]//input");
 
@@ -30,6 +32,7 @@ public class RegisterPageBurger {
 
     //кнопка "Войти" в востановлении пароля
     private final By recoverEnterButton = By.xpath(".//a[text()='Войти']");
+
     private final WebDriver driver;
 
     public RegisterPageBurger(WebDriver driver) {
@@ -58,7 +61,6 @@ public class RegisterPageBurger {
     public LoginPageBurger clickRegisterButton() {
         driver.findElement(registerButton).click();
         return new LoginPageBurger(driver);
-
     }
 
     public String getTextErrorPassword() {

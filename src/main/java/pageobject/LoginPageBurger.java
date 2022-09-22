@@ -57,7 +57,6 @@ public class LoginPageBurger {
         setEmailField(email);
         setPasswordField(password);
         clickEnterButton();
-
     }
 
     public void clickExitButton() {
@@ -66,7 +65,6 @@ public class LoginPageBurger {
         driver.findElement(exitButton).click();
         new WebDriverWait(driver, 8)
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa' and text()='Войти']")));
-
     }
 }
 

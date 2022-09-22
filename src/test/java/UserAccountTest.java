@@ -1,19 +1,15 @@
-import DataAPI.UserClient;
+import dataapi.UserClient;
 import com.github.javafaker.Faker;
 import io.restassured.response.ValidatableResponse;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class UserAccountTest {
     private static UserClient userClient;
-    static String accessToken;
-    static String userToken;
-
-
+    private static String accessToken;
+    private static String userToken;
     private static WebDriver driver;
-
     public static Faker faker = new Faker();
     static String email = faker.name().lastName() + "@mail.ru";
     static String password = faker.internet().password();
@@ -40,7 +36,6 @@ public class UserAccountTest {
         objRegisterPage.clickLogoButton();
     }
 
-
     @After
     public void tearDown() {
         driver.quit();
@@ -51,7 +46,6 @@ public class UserAccountTest {
         userClient.deleteUser(userToken);
     }
 
-
     @Test
     public void openUserProfile() {
         pageobject.HomePageBurger objHomePage = new pageobject.HomePageBurger(driver);
@@ -59,7 +53,6 @@ public class UserAccountTest {
         String actualUrl = driver.getCurrentUrl();
         String expectedUrl = "https://stellarburgers.nomoreparties.site/account/profile";
         Assert.assertEquals(expectedUrl, actualUrl);
-
     }
 
     @Test
@@ -91,6 +84,5 @@ public class UserAccountTest {
         String actualUrl = driver.getCurrentUrl();
         String expectedUrl = "https://stellarburgers.nomoreparties.site/login";
         Assert.assertEquals(expectedUrl, actualUrl);
-
     }
 }

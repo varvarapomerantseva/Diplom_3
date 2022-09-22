@@ -9,11 +9,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ConstructorTest {
 
-
     private static WebDriver driver;
-
     private final String expectedClassName = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
-
 
     @Before
     public void openBrowser() {
@@ -33,7 +30,6 @@ public class ConstructorTest {
         objHomePage.clickSauceButton();
         objHomePage.clickBunButton();
         Assert.assertEquals(expectedClassName, objHomePage.getClassNameBun());
-
     }
 
     @Test
@@ -49,6 +45,4 @@ public class ConstructorTest {
         objHomePage.clickFillingButton();
         Assert.assertEquals(expectedClassName, objHomePage.getClassNameFilling());
     }
-
-
 }

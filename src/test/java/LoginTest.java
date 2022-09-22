@@ -1,21 +1,17 @@
-import DataAPI.UserClient;
+import dataapi.UserClient;
 import com.github.javafaker.Faker;
 import io.restassured.response.ValidatableResponse;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class LoginTest {
 
     private static UserClient userClient;
-    static String accessToken;
-    static String userToken;
-
-
+    private static String accessToken;
+    private static String userToken;
     private static WebDriver driver;
-
     public static Faker faker = new Faker();
     static String email = faker.name().lastName() + "@mail.ru";
     static String password = faker.internet().password();
@@ -27,7 +23,6 @@ public class LoginTest {
         ValidatableResponse response = userClient.create(name, email, password);
         accessToken = response.extract().path("accessToken");
         userToken = accessToken.substring(7);
-
     }
 
     @Before
@@ -36,7 +31,6 @@ public class LoginTest {
         driver = new ChromeDriver();
         driver.get(BaseData.BASE_URL);
     }
-
 
     @After
     public void tearDown() {
@@ -47,7 +41,6 @@ public class LoginTest {
     public static void deleteUser() {
         userClient.deleteUser(userToken);
     }
-
 
     @Test
     public void loginClickEnterButton() {
@@ -83,7 +76,6 @@ public class LoginTest {
         String actual = objHomePage.getTextOrderButton();
         String expected = "Оформить заказ";
         Assert.assertEquals(expected, actual);
-
     }
 
     @Test
@@ -98,6 +90,5 @@ public class LoginTest {
         String actual = objHomePage.getTextOrderButton();
         String expected = "Оформить заказ";
         Assert.assertEquals(expected, actual);
-
     }
 }
